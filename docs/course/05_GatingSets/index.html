@@ -378,7 +378,7 @@ gtag('config', 'G-LZ35J3XE4D', { 'anonymize_ip': true});
 <p><a href="https://www.gnu.org/licenses/agpl-3.0.en.html"><img src="https://img.shields.io/badge/license-AGPLv3-blue.png" class="img-fluid" alt="AGPL-3.0"></a> <a href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg" class="img-fluid" alt="CC BY-SA 4.0"></a></p>
 </div>
 <p>For the YouTube livestream schedule, see <a href="https://www.youtube.com/@cytometryinr">here</a></p>
-<p>For screen-shot slides, click <a href="">here</a></p>
+<p>For screen-shot slides, click <a href="../../course/05_GatingSets/slides.html">here</a></p>
 <p><br></p>
 <hr>
 <section id="background" class="level1">
@@ -440,8 +440,9 @@ Housekeeping
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flowCore)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>flowFrame <span class="ot">&lt;-</span> <span class="fu">read.FCS</span>(<span class="at">filename=</span>fcs_files[<span class="dv">1</span>], <span class="at">truncate_max_range =</span> <span class="cn">FALSE</span>, <span class="at">transformation =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>flowFrame</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>flowFrame <span class="ot">&lt;-</span> <span class="fu">read.FCS</span>(<span class="at">filename=</span>fcs_files[<span class="dv">1</span>], <span class="at">truncate_max_range =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a> <span class="at">transformation =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>flowFrame</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>flowFrame object '2025_07_26_AB_02_INF052_00_Ctrl.fcs'
 with 10000 cells and 43 observables:
@@ -499,8 +500,9 @@ $P43           AF-A        NA   4194304      -111     4194303
 <h2 class="anchored" data-anchor-id="flowset">flowSet</h2>
 <p>Consequently, we will need to use another function if we want to read in multiple .fcs files at once. For <code>flowCore</code>, this function is the <code>read.flowSet()</code> function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>flowSet <span class="ot">&lt;-</span> <span class="fu">read.flowSet</span>(<span class="at">files=</span>fcs_files, <span class="at">truncate_max_range =</span> <span class="cn">FALSE</span>, <span class="at">transformation =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>flowSet</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>flowSet <span class="ot">&lt;-</span> <span class="fu">read.flowSet</span>(<span class="at">files=</span>fcs_files, <span class="at">truncate_max_range =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a> <span class="at">transformation =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>flowSet</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>A flowSet with 6 experiments.
 
@@ -509,7 +511,8 @@ column names(43): Time SSC-W ... APC-Fire 810-A AF-A</code></pre>
 </div>
 <p>Alternatively, we can designate specific files within “fcs_files” we want to read in using the [] and c() notation style we have encountered previously.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read.flowSet</span>(<span class="at">files=</span>fcs_files[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>)], <span class="at">truncate_max_range =</span> <span class="cn">FALSE</span>, <span class="at">transformation =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read.flowSet</span>(<span class="at">files=</span>fcs_files[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>)],</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a> <span class="at">truncate_max_range =</span> <span class="cn">FALSE</span>, <span class="at">transformation =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>A flowSet with 3 experiments.
 
@@ -532,7 +535,7 @@ attr(,"package")
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(flowSet)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Formal class 'flowSet' [package "flowCore"] with 2 slots
-  ..@ frames   :&lt;environment: 0x55d40ab8dbe8&gt; 
+  ..@ frames   :&lt;environment: 0x562242979388&gt; 
   ..@ phenoData:Formal class 'AnnotatedDataFrame' [package "Biobase"] with 4 slots
   .. .. ..@ varMetadata      :'data.frame': 1 obs. of  1 variable:
   .. .. .. ..$ labelDescription: chr "Name"
@@ -722,7 +725,7 @@ attr(,"package")
 <div class="cell-output cell-output-stdout">
 <pre><code>Formal class 'cytoset' [package "flowWorkspace"] with 3 slots
   ..@ pointer  :&lt;externalptr&gt; 
-  ..@ frames   :&lt;environment: 0x55d414e7fdf0&gt; 
+  ..@ frames   :&lt;environment: 0x56224cc6eed0&gt; 
   ..@ phenoData:Formal class 'AnnotatedDataFrame' [package "Biobase"] with 4 slots
   .. .. ..@ varMetadata      :'data.frame': 0 obs. of  1 variable:
   .. .. .. ..$ labelDescription: chr(0) 
@@ -772,7 +775,7 @@ attr(,"package")
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>ConvertedToCytoframe <span class="ot">&lt;-</span> <span class="fu">flowFrame_to_cytoframe</span>(flowFrame)</span>
 <span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>ConvertedToCytoframe</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>cytoframe object 'file806b23cd6a2e'
+<pre><code>cytoframe object 'file5caf7fc9092c'
 with 10000 cells and 43 observables:
                name      desc       range  minRange    maxRange
 $P1            Time        NA     878.809         0     878.809
@@ -1000,7 +1003,7 @@ attr(,"package")
 <span id="cb103-5"><a href="#cb103-5" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-  0.501   0.008   0.509 </code></pre>
+  0.491   0.016   0.507 </code></pre>
 </div>
 </div>
 <p>Alternatively, if we install the <code>bench</code> package, we can use the <code>mark</code> function to evaluate how long it takes on average across numerous iterations.</p>
@@ -1017,7 +1020,7 @@ attr(,"package")
 <pre><code># A tibble: 1 × 6
   expression                             min median `itr/sec` mem_alloc `gc/sec`
   &lt;bch:expr&gt;                           &lt;bch&gt; &lt;bch:&gt;     &lt;dbl&gt; &lt;bch:byt&gt;    &lt;dbl&gt;
-1 Test &lt;- flowjo_to_gatingset(ws = ws… 505ms  527ms      1.92    13.3KB        0</code></pre>
+1 Test &lt;- flowjo_to_gatingset(ws = ws… 497ms  511ms      1.97    13.3KB        0</code></pre>
 </div>
 </div>
 </section>
